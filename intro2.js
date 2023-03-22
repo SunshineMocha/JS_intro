@@ -1,3 +1,5 @@
+/* 20 Marzo 2023 */
+
 console.log('intro 2');
 
 let pippo = 5;  // dichiarazione variabile tipo let, permette il cambio valore

@@ -1,3 +1,4 @@
+/* 20 Marzo 2023 */
 /* valori string, number e boolean*/
 console.log('this is a string', 'hello world'); // questa variabile crea sulla console un log, visibile con Analizza -> Console. Indica il codice eseguito
 console.log('this is a number', 13.5);
