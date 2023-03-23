@@ -238,3 +238,128 @@ console.log(lungh('01234561654869'));
 
 */
 
+/* ESERCIZIO 4
+function costruisciScacchiera(size) {
+    for (let y = 0; y < size; y++) {
+        for (let x = 0; x < size; x++) {
+            if (y % 2 === 0) {
+                if (x % 2 === 0) {
+                    scacchiera+='#';
+                }
+                else{
+                    scacchiera+=' ';
+                }
+            }
+            else{
+                if (x % 2 === 0) {
+                    scacchiera+=' ';
+                }
+                else{
+                    scacchiera+='#';
+                }
+            }
+        }
+        scacchiera+='\n';
+    }
+    return scacchiera;
+}
+
+let scacchiera ='';
+
+console.log(costruisciScacchiera(5)); 
+
+let costruisciScacchiera2 = (size) => {
+    for (let y = 0; y < size; y++) {
+        for (let x = 0; x < size; x++) {
+            if (y % 2 === 0) {
+                if (x % 2 === 0) {
+                    scacchiera2+='#';
+                }
+                else{
+                    scacchiera2+=' ';
+                }
+            }
+            else{
+                if (x % 2 === 0) {
+                    scacchiera2+=' ';
+                }
+                else{
+                    scacchiera2+='#';
+                }
+            }
+        }
+        scacchiera2+='\n';
+    }
+    return scacchiera2;
+}
+
+let scacchiera2='';
+console.log(costruisciScacchiera2(5));
+
+*/
+
+
+/* ESERCIZIO 5
+function fitzBuzz(numb) {
+    if (numb % 3 === 0 && numb % 5 === 0) {
+        return result='FizzBuzz';
+    }
+    else if (numb % 3 === 0) {
+        return result='Fizz';
+    }
+    else if (numb % 5 === 0) {
+        return result='Buzz';
+    }
+    else{
+        return numb;
+    }
+}
+
+let result='';
+console.log(fitzBuzz(5)); 
+
+let fiBu = (numb) =>{
+    if (numb % 3 === 0 && numb % 5 === 0) {
+        return result='FizzBuzz';
+    }
+    else if (numb % 3 === 0) {
+        return result='Fizz';
+    }
+    else if (numb % 5 === 0) {
+        return result='Buzz';
+    }
+    else{
+        return numb;
+    }
+}
+
+
+let result='';
+console.log(fiBu(15)); 
+
+*/
+
+/* ESERCIZIO 6 
+function prendiDispari(nuovo) {
+    for (let i = 0; i < nuovo.length; i+=2) {
+      dispari+=nuovo[i];
+  }
+  return dispari;
+}
+
+let dispari = []
+let nuovo;
+  
+  console.log(prendiDispari('1234567890')); 
+
+let dispari2 = (nuovo2) => {
+    for (let i = 0; i < nuovo2.length; i+=2) {
+        dispariD+=nuovo2[i];
+    }
+    return dispariD
+}
+
+let dispariD = [];
+console.log(dispari2('1234567890'));
+
+*/
