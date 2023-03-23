@@ -60,7 +60,7 @@ let userHeight = prompt('Inserisci altezza tabella', 0);*/
 }
 */
 
-let scacchiera="";
+/*let scacchiera="";
 let size = 18;
 for (let riga = 0; riga < size; riga++) {
     if (riga % 2 !== 0) {
@@ -70,8 +70,32 @@ for (let riga = 0; riga < size; riga++) {
     }
     scacchiera +=  '\n';
 }
-console.log(scacchiera);
+console.log(scacchiera);*/
 
+// Scacchiera funzionante 23 Mar 23
+let scacchiera='';
+for (let y = 0; y < 2; y++) {
+    for (let x = 0; x < 2; x++) {
+        if (y % 2 === 0) {
+            if (x % 2 === 0) {
+                scacchiera+='#';
+            }
+            else{
+                scacchiera+=' ';
+            }
+        }
+        else{
+            if (x % 2 === 0) {
+                scacchiera+=' ';
+            }
+            else{
+                scacchiera+='#';
+            }
+        }
+    }
+    scacchiera+='\n';
+}
+console.log(scacchiera);
 
 
 /* NOTE
