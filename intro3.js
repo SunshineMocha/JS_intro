@@ -430,3 +430,98 @@ function ifMoreThan10CharUppercase(text) {
 console.log(ifMoreThan10CharUppercase('Hey!'));
 console.log(ifMoreThan10CharUppercase(' that was mine!'));
 // IN QUESTO CASO LA FUNZIONE INTERNA È FINE ALLA FUNZIONE ESTERNA, SOLITAMENTE È MEGLIO AVERNE SEPARATE
+
+function sumRangeRecursive(startNumber, endNumber, accumulator = 0) {
+    if (startNumber > endNumber) {
+        return accumulator;
+    }
+    const newStart = startNumber + 1;
+    const newAccumulator = accumulator + startNumber;
+    return sumRangeRecursive(newStart, endNumber, newAccumulator);
+}
+
+
+console.log(sumRangeRecursive(0, 3)); 
+/*
+    1) startNumber = 0; endNumber = 3; accumulator = 0;
+       0 > 3? NO.
+       newStart = 1 (0 + 1); newAccumulator = 0 (0+0)
+    2) startNumber = NewStart = 1; endNumber = 3; accumulator = 0;
+       1 > 3? NO.
+       newStart = 2 (1 + 1); endNumber = 3; newAccumulator = 1 (0 + 1);
+    3) startNumber = NewStart = 2; endNumber = 3; accumulator = 1;
+       2 > 3? NO.
+       newStart = 3 (2 + 1); endNumber = 3; newAccumulator = 3 (1 + 2);
+    4) startNumber = NewStart = 3; endNumber = 3; accumulator = 3;
+       3 > 3? NO.
+       newStart = 4 (3 + 1); endNumber = 3; newAccumulator = 6 (3 + 3);
+    5) startNumber = NewStart = 4; endNumber = 3; accumulator = 6;
+       4 > 3? SI
+       return accumulator (6);
+*/
+
+
+console.log(sumRangeRecursive(0, 6)); // 0 + 1 + 2 + 3 + 4 + 5 + 6 = 21
+console.log(sumRangeRecursive(2, 4)); // 2 + 3 + 4 = 9
+console.log(sumRangeRecursive(-2, 2)); // -2 + -1 + 0 + 1 + 2 = 0
+console.log(sumRangeRecursive(1, 3)); // 1 + 2 + 3 = 6
+console.log(sumRangeRecursive(6, 6)); // 6 + 0
+
+function isEven(selectedNumber) {
+    if (selectedNumber === 0) {
+        return true;
+    }
+    if (selectedNumber === 1) {
+        return false;
+    }
+    return isEven(selectedNumber - 2);
+    // Eventualmente posso dichiarare una nuova variabile contenitore newNumber O selectNumber = selectNumber -2 O selectNumber -= 2
+}
+
+console.log(isEven(0));  // true
+console.log(isEven(1));  // false
+console.log(isEven(3));  // false
+console.log(isEven(8));  // true
+console.log(isEven(4));  // true
+console.log(isEven(6));  // true
+
+function isMyNumberEven(selectedNumber) {
+    
+    if(selectedNumber < 0)  // CONVERTE NEGATIVO IN POSITIVO
+    {
+        selectedNumber *= -1;
+    }
+
+    if (selectedNumber === 0) {
+        return true;
+    }
+    if (selectedNumber === 1) {
+        return false;
+    }
+
+    const newNumber = selectedNumber - 2;
+    return !isMyNumberOdd(newNumber); 
+    // NEGA il risultato in uscita dalla funzione isMyNumberOdd (3 sarebbe true per isMyNumberOdd, diventa falso come risultato in isMyNumberEven)
+}
+function isMyNumberOdd(selectedNumber) {
+
+    if(selectedNumber < 0) // CONVERTE NEGATIVO IN POSITIVO
+    {
+        selectedNumber *= -1;
+    }
+
+    if (selectedNumber === 0) {
+        return false;
+    }
+    if (selectedNumber === 1) {
+        return true;
+    }
+
+    const newNumber = selectedNumber - 2;
+    return !isMyNumberEven(newNumber);
+
+    // NEGA il risultato in uscita dalla funzione isMyNumberEven (3 sarebbe true per isMyNumberEven, diventa falso come risultato in isMyNumberOdd)
+}
+
+console.log(isMyNumberEven(-3));  // false
+console.log(isMyNumberOdd(-3));  // true
