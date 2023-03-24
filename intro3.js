@@ -181,29 +181,31 @@ console.log(minRes(5, 0)); */
 // Esercizio 5: Scrivere una funzione che dato un numero restituisca una stringa con la logica FizzBuzz
 // Esercizio 6: scrivere una funzione che data una stringa restituisca una stringa composta solo dai caratteri dispari dell'originale
 
-/* ESERCIZIO 1
+/* ESERCIZIO 1 
 function moltiplicaPositivo(positivo) { // FUNZIONE
     if (positivo >= 0) {
         return positivo * 2;
     }
+    return positivo;
 }
 
-console.log(moltiplicaPositivo(0)); 
+console.log(moltiplicaPositivo(-10)); 
 
 let molPos = (pos) =>{ // FUNZIONE LAMBDA
     if (pos >= 0) {
         return pos* 2;
     }
+    return pos;
 }
 
-console.log(molPos(0));
+console.log(molPos(10));
 
 */
 
 /*  ESERCIZIO 2
 
 function rendiMAIUSCOLO(stringa) {
-    return stringa.toUpperCase();
+    return stringa.toUpperCase(); // IF typeof text ==='string' per check valore passato
 }
 
 console.log(rendiMAIUSCOLO("GATTO"));
@@ -218,9 +220,7 @@ console.log(MAIUSC("cane"));
     if (stringa.length >= 10) {
         return true;        
     }
-    else{
-        return false;
-    }
+    return false;
 }
 
 console.log(lunghezza('1132456789'));
@@ -229,12 +229,12 @@ let lungh = (strin) =>{
     if (strin.length >= 10) {
         return true;        
     }
-    else{
-        return false;
-    }
+    return false;
 }
 
 console.log(lungh('01234561654869'));
+
+let lungh = (string) => string.length > 10;
 
 */
 
@@ -302,64 +302,131 @@ console.log(costruisciScacchiera2(5));
 /* ESERCIZIO 5
 function fitzBuzz(numb) {
     if (numb % 3 === 0 && numb % 5 === 0) {
-        return result='FizzBuzz';
+        return 'FizzBuzz';
     }
     else if (numb % 3 === 0) {
-        return result='Fizz';
+        return 'Fizz';
     }
     else if (numb % 5 === 0) {
-        return result='Buzz';
+        return 'Buzz';
     }
     else{
         return numb;
     }
 }
-
-let result='';
 console.log(fitzBuzz(5)); 
 
 let fiBu = (numb) =>{
     if (numb % 3 === 0 && numb % 5 === 0) {
-        return result='FizzBuzz';
+        return 'FizzBuzz';
     }
     else if (numb % 3 === 0) {
-        return result='Fizz';
+        return 'Fizz';
     }
     else if (numb % 5 === 0) {
-        return result='Buzz';
+        return 'Buzz';
     }
     else{
         return numb;
     }
 }
 
-
-let result='';
 console.log(fiBu(15)); 
 
 */
 
 /* ESERCIZIO 6 
 function prendiDispari(nuovo) {
-    for (let i = 0; i < nuovo.length; i+=2) {
-      dispari+=nuovo[i];
+    for (let i = 0; i < nuovo.length; i++) {
+      if (i % 2 === 0) {
+            dispari+=nuovo[i];
+        }
   }
   return dispari;
-}
+} 
 
-let dispari = []
+
+let dispari = '';
 let nuovo;
   
-  console.log(prendiDispari('1234567890')); 
+  console.log(prendiDispari('1234567890'));
+
 
 let dispari2 = (nuovo2) => {
-    for (let i = 0; i < nuovo2.length; i+=2) {
-        dispariD+=nuovo2[i];
+    for (let i = 0; i < nuovo2.length; i++) {
+        if (i % 2 === 0) {
+            dispariD+=nuovo2[i];
+        }
     }
-    return dispariD
+    return dispariD;
 }
 
-let dispariD = [];
-console.log(dispari2('1234567890'));
+let dispariD = '';
+console.log(dispari2('C_i_a_o'));
 
 */
+
+// if else ->  CONTROLLO ? AZIONE : ALTERNATIVA;
+//           n maggiore uguale a 0? (?) ALlora n * 2. Altrimenti (:) n;
+
+
+// 24 Marzo 2023
+// Esercizio 8: Scrivere una funzione che sommi tutti i numeri in un range prestabilito
+/*
+function sumRange(startNumber, endNumber) {
+    let sum = 0;
+    for (let i = startNumber; i <= endNumber; i++) {
+        sum = sum + i;
+    }
+    return sum;
+}
+
+console.log(sumRange(0, 3)); // 0 + 1 + 2 + 3 = 6
+
+*/
+
+/* LE FUNZIONI POSSONO USARE ALTRE FUNZIONI */
+
+function doubleAndPow3(selectedNumber) {
+    // const double = selectedNumber * 2;
+    // const pow3 = double ** 3;
+    // return pow3; 
+    // ------------------------------------------
+    // const double = makeDouble(selectedNumber);
+    // const pow3 = makePow3(double);
+    // return pow3; 
+    //-------------------------------------------
+    return makePow3(makeDouble(selectedNumber));
+}
+
+let dAP3 = (selectedNumber) => makePow3(makeDouble(selectedNumber));
+
+function makeDouble(selectedNumber) {
+    return selectedNumber * 2;
+}
+
+function makePow3(selectedNumber) {
+    return selectedNumber ** 3; 
+}
+
+console.log(doubleAndPow3(2)); // 64
+console.log(dAP3(2)); //
+console.log(makeDouble(2)); // 4
+console.log(makePow3(2)); // 8
+
+function ifMoreThan10CharUppercase(text) {
+
+    function isMoreThan10CharInside(textToCheck) {
+        return textToCheck.length > 10;
+    }
+    if (isMoreThan10CharInside(text)) {
+        return text.toUpperCase();
+    }
+    else {
+        return text;
+    }
+}
+
+console.log(ifMoreThan10CharUppercase('Hey!'));
+console.log(ifMoreThan10CharUppercase(' that was mine!'));
+// IN QUESTO CASO LA FUNZIONE INTERNA È FINE ALLA FUNZIONE ESTERNA, SOLITAMENTE È MEGLIO AVERNE SEPARATE
