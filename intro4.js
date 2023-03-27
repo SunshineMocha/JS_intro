@@ -42,8 +42,8 @@ for (let i = 0; i < arrayOfStrings.length; i++) {
 /* ESERCIZI */
 // 1) scrivere una funzione che prende come parametro un array di numeri e fa console.log dei numeri con la logica FizzBuzz
 
+/**/
 /*
-
 function newFizzBuzz(listedNumbers) {
     for (let i = 0; i  < listedNumbers.length; i++) {
         const element = listedNumbers[i];
@@ -64,20 +64,21 @@ function newFizzBuzz(listedNumbers) {
 
 const listedNumbers = [5,3,7,8,15,1,2];
 newFizzBuzz(listedNumbers); 
-
 */
+/**/
 
 // 2) scrivere una funzione che prende come parametro un array di stringhe e logga quelle più piccole di 5 caratteri 
-function shorterThan5(words) {
-    for (let i = 0; i < words.length; i++) {
-        if (words[i].length <= 5) {
-            console.log(words[i]);
+const words = ['pippo', 'pluto', 'paperino', 'topolino', 'paperone']
+function shorterThan5(arrayOfStrings) {
+    for (let i = 0; i < arrayOfStrings.length; i++) {
+        const element = arrayOfStrings[i];
+        if (element.length <= 5) {
+            console.log(element);
         }
     }
 }
-const words = ['pippo', 'pluto', 'paperino', 'topolino', 'paperone']
+
 shorterThan5(words);
 // 3) scrivere una funzione che prende come parametro una stringa e restituisce una stringa composta dai primi 5 caratteri convertiti in maiuscolo
-
 // 4) scrivere una funzione che prende come parametro una stringa e restituisce la lunghezza della stringa senza spazi
 // 5) scrivere una funzione che prende come parametro una stringa e restituisce il numero degli spazi
