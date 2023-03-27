@@ -68,7 +68,7 @@ newFizzBuzz(listedNumbers);
 /**/
 
 // 2) scrivere una funzione che prende come parametro un array di stringhe e logga quelle più piccole di 5 caratteri 
-const words = ['pippo', 'pluto', 'paperino', 'topolino', 'paperone']
+/*const words = ['pippo', 'pluto', 'paperino', 'topolino', 'paperone']
 function shorterThan5(arrayOfStrings) {
     for (let i = 0; i < arrayOfStrings.length; i++) {
         const element = arrayOfStrings[i];
@@ -78,7 +78,7 @@ function shorterThan5(arrayOfStrings) {
     }
 }
 
-shorterThan5(words);
+shorterThan5(words);*/
 // 3) scrivere una funzione che prende come parametro una stringa e restituisce una stringa composta dai primi 5 caratteri convertiti in maiuscolo
 // 4) scrivere una funzione che prende come parametro una stringa e restituisce la lunghezza della stringa senza spazi
 // 5) scrivere una funzione che prende come parametro una stringa e restituisce il numero degli spazi
