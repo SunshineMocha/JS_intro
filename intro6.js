@@ -131,42 +131,42 @@ printX(); */
 
 // CLOSURE E FUNZIONI CHE RESTITUISCONO ALTRE FUNZIONI
 
-let counter = 0;
+// let counter = 0;
 
-function printAndIncrementCounter() {      // Closure, racchiude al suo interno qualcosa trovato da fuori
-    console.log(counter);
-    counter++
-}
+// function printAndIncrementCounter() {      // Closure, racchiude al suo interno qualcosa trovato da fuori
+//     console.log(counter);
+//     counter++
+// }
 
-printAndIncrementCounter();
-printAndIncrementCounter();
-printAndIncrementCounter();
+// printAndIncrementCounter();
+// printAndIncrementCounter();
+// printAndIncrementCounter();
 
-// FUNZIONJI CHE RITORNANO ALTRE FUNZIONI
+// // FUNZIONJI CHE RITORNANO ALTRE FUNZIONI
 
-function getRangeCheckFunction(min, max) {
-    return function(n){
-        return n >= min && n <= max;
-    }
-}
+// function getRangeCheckFunction(min, max) {
+//     return function(n){
+//         return n >= min && n <= max;
+//     }
+// }
 
-let isInRange = getRangeCheckFunction(0,5)
-console.log(isInRange(7));
-console.log(isInRange(1));
-console.log(isInRange(-8));
+// let isInRange = getRangeCheckFunction(0,5)
+// console.log(isInRange(7));
+// console.log(isInRange(1));
+// console.log(isInRange(-8));
 
-let isInAnotherRange = getRangeCheckFunction(10,20) // posso chiamare un'altra funzione che usa la stessa funzione già usata
-console.log(isInAnotherRange(7));
-console.log(isInAnotherRange(1));
-console.log(isInAnotherRange(-8));
+// let isInAnotherRange = getRangeCheckFunction(10,20) // posso chiamare un'altra funzione che usa la stessa funzione già usata
+// console.log(isInAnotherRange(7));
+// console.log(isInAnotherRange(1));
+// console.log(isInAnotherRange(-8));
 
-function getAnotherRangeCheckFunction(n, min, max) {
-        return n >= min && n <= max;
-}
+// function getAnotherRangeCheckFunction(n, min, max) {
+//         return n >= min && n <= max;
+// }
 
-console.log(getAnotherRangeCheckFunction(7, 0, 5));
-console.log(getAnotherRangeCheckFunction(1, 0, 5));
-console.log(getAnotherRangeCheckFunction(-8, 0, 5));
+// console.log(getAnotherRangeCheckFunction(7, 0, 5));
+// console.log(getAnotherRangeCheckFunction(1, 0, 5));
+// console.log(getAnotherRangeCheckFunction(-8, 0, 5));
 
 
 // entra nella funzione con 0 e 5, i valori che abbiamo passato
@@ -174,3 +174,72 @@ console.log(getAnotherRangeCheckFunction(-8, 0, 5));
 // ritorna la funzione che restituisce un'altra funzione
 
 // Si prende il numero dalla globale e lo confronta nella funzione interna alla funzione
+
+//...nomeFunzione (scrivi un array con tutti gli argomenti passati in funzione)
+
+
+// Applicazione delle funzioni di ordine superiore agli array
+/*
+
+let numbers = [1, 2, 3, 4, 5];
+
+let squaredNumbers = [];
+
+for (let n of numbers) { // n of Numbers scorre tra tutti gli elementi di numbers/array e li assegna a n (alternativa a i=0 i<length i++ n=numbers[i])
+    squaredNumbers.push(n*n);
+}
+
+for (let sn of squaredNumbers){
+    console.log(sn);
+}
+
+let doubleNumbers = [];
+
+for(let n of numbers){
+    doubleNumbers.push(n*2);
+}
+*/
+
+// Scrivere una funzione map() che dato in ingresso un array, restituisce un nuovo array con gli stessi elementi del primo trasformati usando una funzione ricevuta in ingresso 
+
+let numbers = [1, 2, 3, 4, 5];
+
+/*function map(array, myInstructions){
+    let newNumbers = [];
+    for (let i = 0; i < array.length; i++) {
+        newNumbers.push(myInstructions(array[i]));
+    }    
+    return newNumbers;
+}
+*/
+/*doDoubled = map(numbers, n => n*2 );
+console.log(doDoubled);
+
+doSquared= map(numbers, n=> n*n);
+console.log(doSquared);*/
+
+// MAP FILTER ECC (produrre un nuovo array)
+
+console.log(numbers.map(n=> n*n));
+console.log(numbers.filter(n => n >= 5));
+let sum = 0;
+numbers.forEach(n  => sum += n);
+console.log(sum);
+
+let words = ['ciao', 'pippo', 'topolino', 'ciao mondo'];
+let res = words  //cerca le parole > 5, conta la lunghezza, stampo
+    .filter(w => w.length > 5)
+    .map(w => w.length)
+    .forEach(l => console.log(l));
+
+for(let w of words){
+    if (w.length < 6) {
+        continue;
+    }
+    let l = w.length;
+    console.log(l);
+}
+
+console.log([1, 2, 3, 4, 5].reduce((accumulator,num)=> accumulator+num, 0 ))
+
+// mdm array su google
