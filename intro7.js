@@ -198,7 +198,7 @@ const mocha = {
 for (const key in mocha) {
     if (Object.hasOwnProperty.call(mocha, key)) {
         const value = mocha[key];
-        console.log(`Chiara ha la proprietà ${value} associata al valore ${key}`)
+        console.log(`Mocha ha la proprietà ${value} associata al valore ${key}`)
     }
 }
 
